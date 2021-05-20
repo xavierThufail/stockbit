@@ -1,0 +1,36 @@
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+  background: none;
+}
+
+.ant-menu-inline .ant-menu-item::after {
+  border-right: 3px solid #c33e32;
+}
+
+.ant-menu-item-selected {
+  color: white;
+}
+
+.ant-menu-item-selected span:first-of-type {
+  color: #c33e32;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background: none;
+}
+
+.ant-menu-item:hover {
+  color: white;
+}
+
+.ant-menu-item:hover span:first-of-type {
+  color: #c33e32;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+  color: white;
+  border-bottom: none;
+}
+
+.ant-menu-horizontal .ant-menu-item, .ant-menu-horizontal .ant-menu-submenu-title {
+  transition: none
+}
