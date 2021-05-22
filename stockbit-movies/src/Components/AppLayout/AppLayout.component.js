@@ -1,19 +1,26 @@
 import React from 'react';
-import { Layout, Input } from 'antd';
-import * as IconTypes from '@ant-design/icons/';
+import { Layout, Input, Spin } from 'antd';
+import { useHistory } from 'react-router-dom';
 
-import { Navbar as NavbarAntd, Icon } from '../index';
+import { Navbar as NavbarAntd, Icon, TouchableOpacity } from '../index';
 import navbarItem from '../../Constants/navbar';
+import useLayout from './AppLayout.hook';
+import routePaths from '../../Constants/routePaths';
 import styles from './AppLayout.style';
+import config from './AppLayout.config';
 
 const { Content } = Layout;
 
-const renderLogo = () => (<h1 style={styles.logo}>Movie Stockbit</h1>);
+const renderLogo = (handleClickLogo) => (
+  <TouchableOpacity onClick={handleClickLogo} >
+    <h1 style={styles.logo}>Movie Stockbit</h1>
+  </TouchableOpacity>
+);
 
-const renderNavbar = () => (
+const renderNavbar = (handleClickLogo) => (
   <div style={styles.navbar.container}>
     <div>
-      {renderLogo()}
+      {renderLogo(handleClickLogo)}
       <NavbarAntd
         items={navbarItem.sidebar}
         mode='inline'
@@ -24,36 +31,42 @@ const renderNavbar = () => (
   </div>
 );
 
-const renderSearch = () => (
+const renderSearch = ({ handleSearch }) => (
   <Input
     style={styles.input}
     size="large"
     placeholder="Search"
     prefix={<Icon type='SearchOutlined' style={styles.inputIcon} />}
+    onChange={handleSearch}
   />
 );
 
-const renderSidebar = (style) => (
+const renderSidebar = ({ handleSearch }) => (
   <div style={styles.sidebar.container}>
-    {renderSearch()}
-    {/* <NavbarAntd
-      items={navbarItem.sidebar.social}
-      mode='inline'
-      styleNavbar={{...style, ...styles.sidebar.}}
-    /> */}
+    {renderSearch({ handleSearch })}
   </div>
 )
 
 const AppLayout = ({ children }) => {
+  const { loading, handleSearch } = useLayout();
+  const history = useHistory();
+
+  const redirectToDashboard = () => history.push(routePaths.DASHBOARD);
+
   return (
-    <Layout style={styles.layout}>
-      {renderNavbar()}
-      <Content style={styles.content}>
-        { children }
-      </Content>
-      {renderSidebar()}
-    </Layout>
+    <Spin size='large' style={styles.loading} spinning={loading}>
+      <Layout style={styles.layout}>
+        {renderNavbar(redirectToDashboard)}
+        <Content style={styles.content}>
+          { children }
+        </Content>
+        {renderSidebar({ handleSearch })}
+      </Layout>
+    </Spin>
   );
 };
+
+AppLayout.displayName = config.displayName;
+AppLayout.propTypes = config.propTypes;
 
 export default AppLayout;

@@ -7,8 +7,8 @@ import styles from './Carousel.style';
 const Carousel = ({ height = '200px', margin, width }) => {
   return (
     <AntdCarousel autoplay>
-      {imageUrl.map(url => (
-        <div>
+      {imageUrl.map((url, index) => (
+        <div key={index}>
           <div style={{...styles(url), height, width, margin}} />
         </div>
       ))}

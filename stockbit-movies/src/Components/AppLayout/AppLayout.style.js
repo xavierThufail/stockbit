@@ -47,6 +47,9 @@ const styles = {
   content: {
     width: '60%',
     padding: '24px'
+  },
+  loading: {
+    color: '#c33e32'
   }
 };
 

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie component snap test Render Movie, should match snapshot 1`] = `
+<div>
+  <div
+    style="display: flex; padding: 24px; width: 100%;"
+  >
+    <div
+      class="touchable"
+    >
+      <img
+        alt="img"
+        src="test"
+        style="width: 100px; height: 150px; background-position: center; background-size: cover; color: transparent; border-radius: 10px;"
+      />
+    </div>
+    <div
+      class="touchable"
+      style="margin-left: 24px; width: 100%;"
+    >
+      <h2
+        style="color: rgb(143, 143, 143); line-height: 1;"
+      >
+        test
+      </h2>
+      <p>
+        test
+      </p>
+      <p>
+        test
+      </p>
+    </div>
+  </div>
+</div>
+`;

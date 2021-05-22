@@ -1,6 +1,8 @@
 import React from 'react';
 import * as IconTypes from '@ant-design/icons/';
 
+import config from './Icon.config';
+
 const Icon = ({ type, style, onClick, twoToneColor }) => {
   const Icons = IconTypes[type];
 
@@ -9,6 +11,7 @@ const Icon = ({ type, style, onClick, twoToneColor }) => {
     : (<span></span>);
 };
 
-Icon.displayName  = 'Icon';
+Icon.displayName  = config.displayName;
+Icon.propTypes = config.propTypes;
 
 export default Icon;

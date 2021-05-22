@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component snap test Render Modal, should match snapshot 1`] = `
+<Modal
+  bodyStyle={
+    Object {
+      "padding": 30,
+    }
+  }
+  centered={true}
+  closable={false}
+  confirmLoading={false}
+  footer={null}
+  maskTransitionName="fade"
+  okType="primary"
+  title={false}
+  transitionName="zoom"
+  visible={true}
+  width={450}
+>
+  <Row>
+    <Col
+      style={
+        Object {
+          "position": "relative",
+          "width": "100%",
+        }
+      }
+    >
+      <TouchableOpacity
+        onClick={[MockFunction]}
+        style={
+          Object {
+            "fontSize": "30px",
+            "lineHeight": 1,
+            "position": "absolute",
+            "right": 0,
+            "zIndex": 1000,
+          }
+        }
+      >
+        <ForwardRef(CloseOutlined) />
+      </TouchableOpacity>
+      <div
+        style={
+          Object {
+            "color": "#00a4de",
+            "fontSize": "24px",
+            "fontWeight": "bold",
+            "lineHeight": 1,
+            "marginBottom": "40px",
+            "textAlign": "center",
+          }
+        }
+      >
+        Title
+      </div>
+      <div>
+        Test
+      </div>
+    </Col>
+  </Row>
+</Modal>
+`;

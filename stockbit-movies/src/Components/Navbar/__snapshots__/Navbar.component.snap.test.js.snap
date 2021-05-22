@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar component snap test Render Navbar, should match snapshot 1`] = `
+<div>
+  <ul
+    class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+    role="menu"
+  >
+    <li
+      class="ant-menu-item"
+      role="menuitem"
+    >
+      <div
+        class="ant-menu-item-icon"
+      />
+      <span>
+        Tv Series
+      </span>
+    </li>
+    <li
+      class="ant-menu-item"
+      role="menuitem"
+    >
+      <div
+        class="ant-menu-item-icon"
+      />
+      <span>
+        Movies
+      </span>
+    </li>
+    <li
+      class="ant-menu-item"
+      role="menuitem"
+    >
+      <div
+        class="ant-menu-item-icon"
+      />
+      <span>
+        Animes
+      </span>
+    </li>
+  </ul>
+</div>
+`;

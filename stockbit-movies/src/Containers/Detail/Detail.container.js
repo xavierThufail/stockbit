@@ -1,11 +1,13 @@
 import React from 'react';
+import { Row, Col } from 'antd';
+
+import DetailComponent from './Detail.component';
+import useDetail from './Detail.hook';
 
 const Detail = () => {
-  return (
-    <div>
-      Detail
-    </div>
-  );
+  const hooks = useDetail();
+
+  return (<DetailComponent {...hooks} />)
 };
 
 export default Detail;

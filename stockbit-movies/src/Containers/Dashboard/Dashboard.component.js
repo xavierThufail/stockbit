@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'antd';
+import React from 'react';
+import { Row, Col, Spin } from 'antd';
 
-import { Navbar, Carousel, Movie } from '../../Components';
+import { Navbar, Carousel, Movie, TouchableOpacity, Modal } from '../../Components';
 import navbarItem from '../../Constants/navbar';
-
-const data = {
-  "Title": "Naruto: Shippûden",
-  "Year": "2007–2017",
-  "imdbID": "tt0988824",
-  "Type": "series",
-  "Poster": "https://m.media-amazon.com/images/M/MV5BMTE5NzIwMGUtYTE1MS00MDUxLTgyZjctOWVkZDAxM2M4ZWQ4XkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg"
-}
 
 const renderNavbar = (style) => (
   <Navbar
@@ -20,25 +12,36 @@ const renderNavbar = (style) => (
   />
 );
 
-const renderContent = () => (
-  <Col>
+const renderMovie = ({ movie, index, handleToDetail, handleOpenModal }) => (
+  <Movie {...movie} onClick={handleToDetail(movie)} key={index} handleOpenModal={handleOpenModal} />
+);
+
+const renderModal = ({ showModal, handleCloseModal, imgUrl }) => (
+  <Modal
+    handleClose={handleCloseModal}
+    visible={showModal}
+    destroyOnClose={true}
+    url={imgUrl}
+  />
+)
+
+const renderContent = ({ listMovies, lastPage, loader, handleToDetail, showModal, handleCloseModal , handleOpenModal, imgUrl }) => (
+  <Col style={{ width: '100%' }}>
     {renderNavbar()}
     <Carousel margin={24} height={350} />
-    <Movie {...data} />
-    <Movie {...data} />
-    <Movie {...data} />
-    <Movie {...data} />
-    <Movie {...data} />
+    {listMovies && listMovies.map((movie, index) => renderMovie({ movie, index, handleToDetail, handleOpenModal }))}
+    <div ref={loader} />
+    {(!lastPage) && <div style={{ width: '100%' }} >
+      <Spin style={{ width: '100%' }} />
+    </div>}
+    {renderModal({ showModal, handleCloseModal, imgUrl })}
   </Col>
 );
 
-const DashboardComponent = () => {
-
-  return (
-    <Row style={{ overflowY: 'scroll', height: '100%' }}>
-      {renderContent()}
-    </Row>
-  );
-};
+const DashboardComponent = (props) => (
+  <Row style={{ overflowY: 'scroll', height: '100%' }}>
+    {renderContent(props)}
+  </Row>
+);
 
 export default DashboardComponent;
